@@ -1,3 +1,5 @@
+`include "header.v"
+
 module Control (
     Op_i,
     ALUOp_o,
@@ -16,11 +18,12 @@ assign RegWrite_o = 1;
 
 // Output signal
 always @(Op_i) begin
-    if (Op_i[5] == 0) begin
+    if (Op_i == `opcode_R) begin
         // R-type
         ALUOp_o <= 2'b10;
         ALUSrc_o <= 0;
-    end else begin
+    end
+    else if (Op_i == `opcode_I) begin
         // I-type
         ALUOp_o <= 2'b11;
         ALUSrc_o <= 1;
