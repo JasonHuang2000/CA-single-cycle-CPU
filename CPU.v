@@ -23,12 +23,12 @@ wire    [31:0]  rs2_data;
 wire    [31:0]  imm_32;
 wire    [31:0]  mux_out;
 wire    [9:0]   funct;
-wire    [2:0]   ALU_ctrl
+wire    [2:0]   ALU_ctrl;
 wire    [31:0]  ALU_result;
 wire            zero;
 
 // assign function code
-assign funct = {instr[31:25], instr[14:12]}
+assign funct = {instr[31:25], instr[14:12]};
 
 Control Control (
     .Op_i       (instr[6:0]),

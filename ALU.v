@@ -16,7 +16,7 @@ output  [31:0]  data_o;
 output          Zero_o;
 
 // Zero remains don't care in phase 1
-assign Zero_o <= 1'bx
+assign Zero_o = 1'bx;
 
 // Output result
 always @(data1_i or data2_i or ALUCtrl_i) begin
