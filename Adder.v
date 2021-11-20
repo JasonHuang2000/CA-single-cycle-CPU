@@ -5,8 +5,8 @@ module Adder (
 );
 
 // Ports
-input   [31:0]  data1_i;
-input   [31:0]  data2_i;
+input   [31:0]  data1_in;
+input   [31:0]  data2_in;
 output  [31:0]  data_o;
 
 // Output result
