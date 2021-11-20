@@ -1,5 +1,4 @@
-module Registers
-(
+module Registers (
     clk_i,
     RS1addr_i,
     RS2addr_i,
@@ -28,7 +27,7 @@ assign  RS1data_o = register[RS1addr_i];
 assign  RS2data_o = register[RS2addr_i];
 
 // Write Data   
-always@(posedge clk_i) begin
+always @(posedge clk_i) begin
     if(RegWrite_i)
         register[RDaddr_i] <= RDdata_i;
 end
