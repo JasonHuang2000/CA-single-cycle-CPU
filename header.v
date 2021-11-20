@@ -2,6 +2,10 @@
 `define opcode_R 7'b0110011
 `define opcode_I 7'b0010011
 
+// ALU opcode
+`define ALU_opcode_R 2'b10
+`define ALU_opcode_I 2'b11
+
 // R-type function codes
 `define funct_AND 10'b0000000111
 `define funct_XOR 10'b0000000100

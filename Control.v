@@ -16,18 +16,26 @@ output          RegWrite_o;
 // RegWrite is always 1
 assign RegWrite_o = 1;
 
+// Reg
+reg     [1:0]   reg_op;
+reg             reg_src;
+
 // Output signal
 always @(Op_i) begin
     if (Op_i == `opcode_R) begin
         // R-type
-        ALUOp_o <= 2'b10;
-        ALUSrc_o <= 0;
+        reg_op = `ALU_opcode_R;
+        reg_src = 0;
     end
     else if (Op_i == `opcode_I) begin
         // I-type
-        ALUOp_o <= 2'b11;
-        ALUSrc_o <= 1;
+        reg_op = `ALU_opcode_I;
+        reg_src = 1;
     end
 end
+
+// assign wire
+assign ALUOp_o = reg_op;
+assign ALUSrc_o = reg_src;
 
 endmodule
