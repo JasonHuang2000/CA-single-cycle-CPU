@@ -26,9 +26,19 @@ wire    [9:0]   funct;
 wire    [2:0]   ALU_ctrl;
 wire    [31:0]  ALU_result;
 wire            zero;
+wire    [31:0]  four;
 
+// assign 4
+assign four = 32'd4;
 // assign function code
-assign funct = {instr[31:25], instr[14:12]};
+assign funct = { instr[31:25], instr[14:12] };
+
+// always @(posedge clk_i) begin
+//     $display ("ALU_src: %d, ALU_ctrl: %d", ALU_src, ALU_ctrl);
+//     $display ("ALU in 1: %d", rs1_data);
+//     $display ("ALU in 2: %d", mux_out);
+//     $display ("ALU out: %d", ALU_result);
+// end
 
 Control Control (
     .Op_i       (instr[6:0]),
@@ -39,13 +49,13 @@ Control Control (
 
 Adder Add_PC (
     .data1_in   (pc_o),
-    .data2_in   (32'd4),
+    .data2_in   (four),
     .data_o     (pc_i)
 );
 
 PC PC (
     .clk_i      (clk_i),
-    .rst_i      (rst_I),
+    .rst_i      (rst_i),
     .start_i    (start_i),
     .pc_i       (pc_i),
     .pc_o       (pc_o)

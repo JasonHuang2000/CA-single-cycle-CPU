@@ -29,7 +29,7 @@ always @(data1_i or data2_i or ALUCtrl_i) begin
         `ALU_ADD: reg_o = data1_i + data2_i;
         `ALU_SUB: reg_o = data1_i - data2_i;
         `ALU_MUL: reg_o = data1_i * data2_i;
-        `ALU_SRA: reg_o = data1_i >>> data2_i;
+        `ALU_SRA: reg_o = data1_i >>> data2_i[4:0];
     endcase
 end
 
